@@ -27,8 +27,6 @@
   };
 
   services = {
-    pipewire.jack.enable = true;
-
     blueman.enable = true;
     pcscd.enable = true;
     udev.packages = with pkgs; [
