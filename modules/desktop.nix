@@ -131,7 +131,7 @@ in
         azahar
         jan
         # yaak broken?
-        inputs.grimoire.packages.${pkgs.system}.default
+        inputs.grimoire.packages.${pkgs.stdenv.hostPlatform.system}.default
 
         wl-clipboard
       ];
