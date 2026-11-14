@@ -130,7 +130,7 @@ in
         # citrix_workspace_25_08_10
         azahar
         jan
-        yaak
+        # yaak broken?
         inputs.grimoire.packages.${pkgs.system}.default
 
         wl-clipboard
