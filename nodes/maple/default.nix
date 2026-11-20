@@ -43,7 +43,8 @@
 
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
-    kernelPackages = pkgs.linuxPackages_zen;
+    # kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Use the systemd-boot EFI boot loader.
     loader = {
