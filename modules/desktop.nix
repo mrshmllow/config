@@ -172,8 +172,10 @@ in
         base16Scheme = {
           yaml = pkgs.fetchurl {
             # previously: pine-rose-moon
-            url = "https://github.com/tinted-theming/schemes/raw/refs/heads/spec-0.11/base16/solarized-light.yaml";
-            hash = "sha256-npq2z6tkkE6FJQrgl6Ut/S3nveMg0opkmX6Gsf5C4wY=";
+            # url = "https://github.com/tinted-theming/schemes/raw/refs/heads/spec-0.11/base16/solarized-light.yaml";
+            # hash = "sha256-npq2z6tkkE6FJQrgl6Ut/S3nveMg0opkmX6Gsf5C4wY=";
+            url = "https://github.com/tinted-theming/schemes/raw/refs/heads/spec-0.11/base16/rose-pine-moon.yaml";
+            hash = "sha256-mJ0FNVyFj3QB0Uu0rZf/QRH8hRGYJxXuoUSfMG/K2Pc=";
           };
         };
 
