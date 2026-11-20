@@ -203,6 +203,8 @@
 
     packages = [
       inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.crush
+      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2
+      inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2-desktop
     ]
     ++ lib.optional (config.programs.jujutsu.settings.fsmonitor.backend == "watchman") pkgs.watchman;
   };
