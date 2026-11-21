@@ -18,7 +18,7 @@
 
     packages = [
       inputs.candy.packages.${pkgs.stdenv.hostPlatform.system}.default
-      inputs.candy.packages.${pkgs.stdenv.hostPlatform.system}.neovide
+      # inputs.candy.packages.${pkgs.stdenv.hostPlatform.system}.neovide
     ];
   };
 
