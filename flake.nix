@@ -7,63 +7,65 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    candy.url = "git+https://tangled.org/@althaea.zone/candy?ref=trunk";
+    candy = {
+      url = "git+https://tangled.org/@althaea.zone/candy?ref=trunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wire.url = "github:forallsys/wire/trunk";
-
-    # star citizen
     nix-citizen = {
       url = "github:LovingMelody/nix-citizen";
       inputs.nix-gaming.follows = "nix-gaming";
     };
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
-    grimoire.url = "github:Slush97/grimoire";
-
+    grimoire = {
+      url = "github:Slush97/grimoire";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     typst-bot = {
       url = "github:mattfbacon/typst-bot";
       flake = false;
     };
-
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
-
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nix-gaming";
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell/cachix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    ninb.url = "git+https://tangled.org/althaea.zone/ninjabrain-bot-nix?ref=trunk";
-
+    ninb = {
+      url = "git+https://tangled.org/althaea.zone/ninjabrain-bot-nix?ref=trunk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mcsr-nixos = {
       url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     disko.url = "github:nix-community/disko";
     direnv-instant.url = "github:Mic92/direnv-instant";
     llm-agents.url = "github:numtide/llm-agents.nix";
     helium.url = "github:Nytelife26/nixpkgs/helium/init";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-
     bom = {
       url = "github:bremor/bureau_of_meteorology";
       flake = false;
     };
-
     waywall = {
       url = "github:tesselslate/waywall";
       flake = false;
