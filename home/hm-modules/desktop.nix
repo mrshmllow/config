@@ -104,23 +104,6 @@ in
               include "us(basic)"
 
               name[Group1] = "Minecraft";
-
-              key <AD01> { [ i, I ] }; // q > i
-              key <AD03> { [ o, O ] }; // e > o
-              key <AC02> { [ e, E ] }; // s > e
-              key <AC03> { [ b, b ] }; // d > b
-              key <AC04> { [ k, K ] }; // f > k
-              key <AC05> { [ d, D ] }; // g > d
-              key <AB01> { [ p, P ] }; // z > p
-
-              key <AD08> { [ q, Q ] }; // q < i
-              key <AD09> { [ e, E ] }; // e < o
-              // key <AC02> { [ e, E ] }; // s > e
-              key <AB05> { [ d, D ] }; // d < b
-              key <AC08> { [ f, F ] }; // f < k
-              // key <AC05> { [ d, D ] }; // g > d
-              key <AD10> { [ z, Z ] }; // z < p
-              // key <AB01> { [ p, P ] }; // z > p
           };
         '';
       };
