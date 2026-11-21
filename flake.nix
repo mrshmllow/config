@@ -60,7 +60,10 @@
     disko.url = "github:nix-community/disko";
     direnv-instant.url = "github:Mic92/direnv-instant";
     llm-agents.url = "github:numtide/llm-agents.nix";
-    helium.url = "github:Nytelife26/nixpkgs/helium/init";
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix.url = "github:numtide/treefmt-nix";
     bom = {
       url = "github:bremor/bureau_of_meteorology";
