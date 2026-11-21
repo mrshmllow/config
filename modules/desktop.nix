@@ -84,8 +84,6 @@ in
         ];
 
       environment.systemPackages = with pkgs; [
-        inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-
         (google-chrome.override {
           # todo: r these needed anymore?
           commandLineArgs = [
