@@ -40,9 +40,10 @@ local config = {
 	actions = {
 		["*-9"] = function()
 			waywall.exec(
-				paths.java
-					.. " -Dswing.defaultlaf=javax.swing.plaf.metal.MetalLookAndFeel -Dawt.useSystemAAFontSettings=on -jar "
-					.. paths.ninb
+				paths.ninb
+				-- paths.java
+				-- 	.. " -Dswing.defaultlaf=javax.swing.plaf.metal.MetalLookAndFeel -Dawt.useSystemAAFontSettings=on -jar "
+				-- 	.. paths.ninb
 			)
 		end,
 

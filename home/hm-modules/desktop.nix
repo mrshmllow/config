@@ -33,44 +33,44 @@ in
         };
       };
 
-      # programs.ninjabrain-bot = {
-      #   enable = true;
-      #   stylix = false;
-      #   force = true;
-      #   settings = {
-      #     hotkey_decrement.key = 57419; # "right"
-      #     hotkey_increment.key = 57421; # "left"
-      #
-      #     hotkey_lock.key = 23; # "i"
-      #     hotkey_reset = {
-      #       key = 19; # "r"
-      #       modifiers = [ "ALT_L" ];
-      #     };
-      #
-      #     view = "detailed";
-      #     all_advancements = false;
-      #     mc_version = "pre_119";
-      #     sensitivity = 0.02291165;
-      #
-      #     size = "medium";
-      #
-      #     default_boat_type = "green";
-      #     alt_clipboard_reader = false;
-      #     angle_adjustment_display_type = "increments";
-      #     angle_adjustment_type = "tall";
-      #     auto_reset = false;
-      #     color_negative_coords = false;
-      #     direction_help_enabled = true;
-      #     show_angle_errors = true;
-      #     show_angle_updates = true;
-      #     sigma_boat = 0.0007;
-      #     stronghold_display_type = "fourfour";
-      #     use_adv_statistics = true;
-      #     use_precise_angle = true;
-      #
-      #     enable_http_server = true;
-      #   };
-      # };
+      programs.ninjabrain-bot = {
+        enable = true;
+        # stylix = false;
+        # force = true;
+        settings = {
+          hotkey_decrement_code = 122955;
+          hotkey_decrement_modifier = 0;
+          hotkey_increment_code = 122957;
+          hotkey_increment_modifier = 0;
+          hotkey_lock_code = 65574;
+          hotkey_lock_modifier = 0;
+          hotkey_reset_code = 65555;
+          hotkey_reset_modifier = 1;
+
+          view = "detailed";
+          all_advancements = false;
+          mc_version = "pre_119";
+          sensitivity = 0.02291165;
+
+          size = "medium";
+
+          default_boat_type = "green";
+          alt_clipboard_reader = false;
+          angle_adjustment_display_type = "increments";
+          angle_adjustment_type = "tall";
+          auto_reset = false;
+          color_negative_coords = false;
+          direction_help_enabled = true;
+          show_angle_errors = true;
+          show_angle_updates = true;
+          sigma_boat = 0.0007;
+          stronghold_display_type = "fourfour";
+          use_adv_statistics = true;
+          use_precise_angle = true;
+
+          enable_http_server = true;
+        };
+      };
 
       xdg.configFile = {
         "waywall/init.lua".text = ''
@@ -86,12 +86,7 @@ in
                   ''
               }",
               java = "${lib.getExe' pkgs.openjdk25 "java"}",
-              ninb = "${
-                pkgs.fetchurl {
-                  url = "https://github.com/Ninjabrain1/Ninjabrain-Bot/releases/download/1.5.2/Ninjabrain-Bot-1.5.2.jar";
-                  hash = "sha256-mAmfYyGpDUrOwTQA6G0F96+NYOVjnC84Qn6WjccUUP8=";
-                }
-              }",
+              ninb = "${lib.getExe config.programs.ninjabrain-bot.package}",
               overlay = "${./overlay.png}",
           }
 
