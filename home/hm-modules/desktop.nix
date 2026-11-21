@@ -88,8 +88,8 @@ in
               java = "${lib.getExe' pkgs.openjdk25 "java"}",
               ninb = "${
                 pkgs.fetchurl {
-                  url = "https://github.com/Ninjabrain1/Ninjabrain-Bot/releases/download/1.5.1/Ninjabrain-Bot-1.5.1.jar";
-                  hash = "sha256-Rxu9A2EiTr69fLBUImRv+RLC2LmosawIDyDPIaRcrdw=";
+                  url = "https://github.com/Ninjabrain1/Ninjabrain-Bot/releases/download/1.5.2/Ninjabrain-Bot-1.5.2.jar";
+                  hash = "sha256-mAmfYyGpDUrOwTQA6G0F96+NYOVjnC84Qn6WjccUUP8=";
                 }
               }",
               overlay = "${./overlay.png}",
