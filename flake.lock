@@ -181,11 +181,11 @@
         "tolerable": "tolerable"
       },
       "locked": {
-        "lastModified": 1795224805,
-        "narHash": "sha256-UqA0++I29gbLBQg52isA3H8L3n4fmjzFgWFgbVSp/88=",
+        "lastModified": 1795231383,
+        "narHash": "sha256-45zHfgMSUCh/bPUyTWTc4wlApm7JOEvc0w06HypHPBA=",
         "ref": "trunk",
-        "rev": "6b7383e6d2c98e9e5cc3afd6583ca1699704d95f",
-        "revCount": 348,
+        "rev": "0abe9ea6ddcfcfd63b857b8248f7a5d3be663f3f",
+        "revCount": 349,
         "type": "git",
         "url": "https://tangled.org/@althaea.zone/candy"
       },
