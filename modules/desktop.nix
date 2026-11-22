@@ -17,8 +17,8 @@ in
     gnome.enable = lib.mkEnableOption "gnome desktop";
     niri.enable = lib.mkEnableOption "niri wm";
     games.sc.enable = lib.mkEnableOption "star citizen";
+    games.mcsr.enable = lib.mkEnableOption "mcsr";
     apps.davinci-resolve.enable = lib.mkEnableOption "davinci resolve";
-
     apps.carla.enable = lib.mkEnableOption "audio stuff";
   };
 
@@ -370,6 +370,13 @@ in
             VST3_PATH = makePluginPath "vst3";
           };
       };
+    })
+    (lib.mkIf cfg.games.mcsr.enable {
+      home-manager.sharedModules = [
+        {
+          desktop.mcsr.enable = true;
+        }
+      ];
     })
   ];
 }

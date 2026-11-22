@@ -12,7 +12,10 @@
     enable = true;
     amd = true;
     niri.enable = true;
-    games.sc.enable = false;
+    games = {
+      sc.enable = false;
+      mcsr.enable = true;
+    };
     apps = {
       carla.enable = true;
       davinci-resolve.enable = true;

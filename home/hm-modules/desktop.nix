@@ -12,6 +12,7 @@ in
   options.desktop = {
     enable = lib.mkEnableOption "desktop computer";
     niri.enable = lib.mkEnableOption "niri wm";
+    mcsr.enable = lib.mkEnableOption "mcsr";
   };
 
   config = lib.mkMerge [
@@ -33,7 +34,9 @@ in
           selection_word_boundary = " \t\n{}[]()\"'`«»";
         };
       };
+    })
 
+    (lib.mkIf cfg.mcsr.enable {
       nixcraft = {
         enable = true;
 
