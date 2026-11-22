@@ -87,11 +87,6 @@ in
                   hash = "sha256-88U8h4jTG7hlugNPoKIawHWB07365RsevulblCatrE0=";
                 })
                 (mkLegal "sodium-2.5.1+1.16.1.jar" "sha256-ChV1fDZ07Pdn2FwJ3mPxr69zDe1+ozfvyw+w90dRvAY=")
-                # (mkLegalAdv {
-                #   name = "SpeedRunIGT-16.0+1.16.1.jar";
-                #   ppart = "speedrunigt";
-                #   hash = "sha256-fzCj3c/Hdux3Zz++CjzE7T3xYfOZ5D2TseByZEKSTwE=";
-                # })
                 (mkLegalAdv {
                   name = "standardsettings-2.3+1.16-1.16.1.jar";
                   hash = "sha256-KVoWPvh9yLxOWiqz9b1X4snnKYBpiTrb9XW5++Fno8w=";
