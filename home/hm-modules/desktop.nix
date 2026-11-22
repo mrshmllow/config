@@ -84,7 +84,7 @@ in
                 (mkLegal "lithium-1.0+backport-0.6.7+1.16.1.jar" "sha256-FwjezXLDKWRrNZ95UiT4iNGKnePJjfQHnDGZxy3p+8M=")
                 (pkgs.fetchurl {
                   url = "https://cdn.modrinth.com/data/I9W1u5Ac/versions/Uppa2nGO/mcsrranked-6.0.12.jar";
-                  hash = "sha256-6erp0cAHavAXhbhx9kVO6qsUrcsPTsVlLupcx5n6taM=";
+                  hash = "sha256-88U8h4jTG7hlugNPoKIawHWB07365RsevulblCatrE0=";
                 })
                 (mkLegal "sodium-2.5.1+1.16.1.jar" "sha256-ChV1fDZ07Pdn2FwJ3mPxr69zDe1+ozfvyw+w90dRvAY=")
                 # (mkLegalAdv {
