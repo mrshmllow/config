@@ -47,26 +47,28 @@ in
           hotkey_reset_code = 65555;
           hotkey_reset_modifier = 1;
 
-          view = "detailed";
+          view = 1;
           all_advancements = false;
-          mc_version = "pre_119";
+          mc_version = 0;
           sensitivity = 0.02291165;
 
-          size = "medium";
+          size = 1;
 
-          default_boat_type = "green";
+          default_boat_type = 2;
           alt_clipboard_reader = false;
-          angle_adjustment_display_type = "increments";
-          angle_adjustment_type = "tall";
+          angle_adjustment_display_type = 1;
+          angle_adjustment_type = 1;
           auto_reset = false;
           color_negative_coords = false;
           direction_help_enabled = true;
           show_angle_errors = true;
           show_angle_updates = true;
           sigma_boat = 0.0007;
-          stronghold_display_type = "fourfour";
+          stronghold_display_type = 0;
           use_adv_statistics = true;
           use_precise_angle = true;
+
+          sigma = 0.01;
 
           enable_http_server = true;
         };
