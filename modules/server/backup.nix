@@ -3,6 +3,7 @@
   lib,
   pkgs,
   name,
+  mkDeploymentKey,
   ...
 }:
 let
@@ -50,27 +51,11 @@ in
           ;
       };
 
-      deployment.keys."restic.password" = {
-        keyCommand = [
-          "gpg"
-          "--decrypt"
-          "${../../secrets/restic.password.gpg}"
-        ];
-
-        destDir = "/etc/keys";
-
+      deployment.keys."restic.password" = mkDeploymentKey ../../secrets/restic.password.gpg {
         inherit (config.services.restic.backups.${name}) user;
       };
 
-      deployment.keys."restic.env" = {
-        keyCommand = [
-          "gpg"
-          "--decrypt"
-          "${../../secrets/restic.env.gpg}"
-        ];
-
-        destDir = "/etc/keys";
-
+      deployment.keys."restic.env" = mkDeploymentKey ../../secrets/restic.env.gpg {
         inherit (config.services.restic.backups.${name}) user;
       };
     })

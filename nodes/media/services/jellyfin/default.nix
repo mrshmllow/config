@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }:
 {
@@ -41,9 +40,7 @@
     ];
   };
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "intel-ocl"
-    ];
+  nixpkgs.config.allowUnfreePackages = [
+    "intel-ocl"
+  ];
 }

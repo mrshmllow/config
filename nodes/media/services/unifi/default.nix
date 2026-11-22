@@ -10,5 +10,8 @@
 
   networking.firewall.allowedTCPPorts = [ 8443 ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePackages = [
+    "unifi-controller"
+    "mongodb"
+  ];
 }

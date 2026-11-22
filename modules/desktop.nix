@@ -32,10 +32,18 @@ in
 
       services = {
         displayManager.gdm.enable = true;
+        blueman.enable = true;
 
         flatpak.enable = true;
         earlyoom.enable = true;
       };
+
+      virtualisation.libvirtd.enable = true;
+
+      users.users.marsh.extraGroups = [
+        "docker"
+        "libvirtd"
+      ];
 
       boot.supportedFilesystems = [ "nfs" ];
 
@@ -50,6 +58,9 @@ in
           ];
         };
         nix-ld.enable = true;
+        gamemode.enable = true;
+        virt-manager.enable = true;
+        fuse.userAllowOther = true;
 
         steam = {
           enable = true;
@@ -68,20 +79,18 @@ in
         SUBSYSTEM=="usb", ATTR{idVendor}=="057e", ATTR{idProduct}=="2069", MODE="0666"
       '';
 
-      nixpkgs.config.allowUnfreePredicate =
-        pkg:
-        builtins.elem (lib.getName pkg) [
-          "rsi-launcher"
-          "rsi-installer"
-          "google-chrome"
-          "intellij-idea"
-          "citrix-workspace"
-          "steam"
-          "steam-unwrapped"
-          "affinity-v3"
-          "affinity-extracted-sources"
-          "davinci-resolve"
-        ];
+      nixpkgs.config.allowUnfreePackages = [
+        "rsi-launcher"
+        "rsi-installer"
+        "google-chrome"
+        "intellij-idea"
+        "citrix-workspace"
+        "steam"
+        "steam-unwrapped"
+        "affinity-v3"
+        "affinity-extracted-sources"
+        "davinci-resolve"
+      ];
 
       environment.systemPackages = with pkgs; [
         (google-chrome.override {
@@ -148,7 +157,6 @@ in
         fontDir.enable = true;
         packages = with pkgs; [
           source-han-sans
-          source-han-sans
           source-han-serif
           noto-fonts
           noto-fonts-cjk-sans
@@ -204,7 +212,10 @@ in
     })
 
     (lib.mkIf cfg.amd {
-      hardware.amdgpu.opencl.enable = true;
+      hardware = {
+        amdgpu.opencl.enable = true;
+        cpu.amd.updateMicrocode = true;
+      };
     })
 
     (lib.mkIf cfg.gnome.enable {
@@ -250,8 +261,10 @@ in
       };
 
       # must be enabled for noctalia
-      hardware.bluetooth.enable = true;
-      networking.networkmanager.enable = true;
+      hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+      };
       services = {
         power-profiles-daemon.enable = true;
         upower.enable = true;
@@ -295,8 +308,6 @@ in
     })
 
     (lib.mkIf cfg.games.sc.enable {
-      programs.gamemode.enable = true;
-
       programs.rsi-launcher = {
         enable = true;
         preCommands = ''

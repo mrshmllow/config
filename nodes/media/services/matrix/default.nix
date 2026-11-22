@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  mkDeploymentKey,
   ...
 }:
 let
@@ -67,13 +68,7 @@ in
     '';
   };
 
-  deployment.keys."matrix.extra.yaml" = {
-    keyCommand = [
-      "gpg"
-      "--decrypt"
-      "${../../../../secrets/matrix.extra.yaml.gpg}"
-    ];
-    destDir = "/etc/keys";
+  deployment.keys."matrix.extra.yaml" = mkDeploymentKey ../../../../secrets/matrix.extra.yaml.gpg {
     group = "matrix-synapse";
     user = "matrix-synapse";
   };

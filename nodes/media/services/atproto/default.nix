@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, mkDeploymentKey, ... }:
 {
   server.backups.paths = [
     config.services.bluesky-pds.settings.PDS_DATA_DIRECTORY
@@ -27,12 +27,5 @@
     reverse_proxy http://localhost:${builtins.toString config.services.bluesky-pds.settings.PDS_PORT}
   '';
 
-  deployment.keys."pds.env" = {
-    keyCommand = [
-      "gpg"
-      "--decrypt"
-      "${../../../../secrets/pds.env.gpg}"
-    ];
-    destDir = "/etc/keys";
-  };
+  deployment.keys."pds.env" = mkDeploymentKey ../../../../secrets/pds.env.gpg { };
 }

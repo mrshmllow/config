@@ -19,15 +19,9 @@
     };
   };
 
-  hardware = {
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
-    keyboard.qmk.enable = true;
-    cpu.amd.updateMicrocode = true;
-  };
+  hardware.keyboard.qmk.enable = true;
 
   services = {
-    blueman.enable = true;
     pcscd.enable = true;
     udev.packages = with pkgs; [
       yubikey-personalization
@@ -45,12 +39,6 @@
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     # kernelPackages = pkgs.linuxPackages_zen;
     kernelPackages = pkgs.linuxPackages_latest;
-
-    # Use the systemd-boot EFI boot loader.
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
   };
 
   nix.settings.extra-platforms = config.boot.binfmt.emulatedSystems;
@@ -62,25 +50,10 @@
     ];
   };
 
-  programs = {
-    obs-studio = {
-      enable = true;
-      enableVirtualCamera = true;
-      plugins = [
-        pkgs.obs-studio-plugins.obs-pipewire-audio-capture
-      ];
-    };
-    virt-manager.enable = true;
-    fuse.userAllowOther = true;
-  };
-
   virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        swtpm.enable = true;
-        vhostUserPackages = [ pkgs.virtiofsd ];
-      };
+    libvirtd.qemu = {
+      swtpm.enable = true;
+      vhostUserPackages = [ pkgs.virtiofsd ];
     };
     podman.enable = true;
     waydroid = {
@@ -102,18 +75,6 @@
   };
 
   networking.hostName = "maple";
-
-  time.timeZone = "Australia/Sydney";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  users.users.marsh = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "libvirtd"
-    ]; # Enable ‘sudo’ for the user.
-  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

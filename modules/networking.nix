@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  mkDeploymentKey,
   ...
 }:
 let
@@ -36,14 +37,7 @@ in
 
       systemd.services.${config.services.netbird.clients.default.service.name}.path = [ pkgs.shadow ];
 
-      deployment.keys."netbird.key" = {
-        keyCommand = [
-          "gpg"
-          "--decrypt"
-          "${../secrets/netbird.key.gpg}"
-        ];
-        destDir = "/etc/keys";
-      };
+      deployment.keys."netbird.key" = mkDeploymentKey ../secrets/netbird.key.gpg { };
     })
     (lib.mkIf (config.desktop.enable && cfg.netbird.enable) {
       services.netbird.clients.default.ui.enable = true;

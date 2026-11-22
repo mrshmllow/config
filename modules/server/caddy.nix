@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  mkDeploymentKey,
   ...
 }:
 let
@@ -28,15 +29,7 @@ in
       443
     ];
 
-    deployment.keys."builtin.caddy.env" = {
-      keyCommand = [
-        "gpg"
-        "--decrypt"
-        "${../../secrets/media.caddy.env.gpg}"
-      ];
-
-      destDir = "/etc/keys";
-
+    deployment.keys."builtin.caddy.env" = mkDeploymentKey ../../secrets/media.caddy.env.gpg {
       inherit (config.services.caddy) user group;
     };
   };

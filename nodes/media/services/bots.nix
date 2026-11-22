@@ -3,6 +3,7 @@
   lib,
   inputs,
   config,
+  mkDeploymentKey,
   ...
 }:
 let
@@ -57,14 +58,7 @@ in
     path = [ pkgs.typst ];
   };
 
-  deployment.keys."typstbot.env" = {
-    keyCommand = [
-      "gpg"
-      "--decrypt"
-      "${../../../secrets/typstbot.env.gpg}"
-    ];
-
-    destDir = "/etc/keys";
+  deployment.keys."typstbot.env" = mkDeploymentKey ../../../secrets/typstbot.env.gpg {
     uploadAt = "post-activation";
     user = "typstbot";
     group = "typstbot";

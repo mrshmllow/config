@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, mkDeploymentKey, ... }:
 {
   server.backups.paths = [
     config.services.sonarr.dataDir
@@ -47,12 +47,5 @@
     };
   };
 
-  deployment.keys."slskd.env" = {
-    keyCommand = [
-      "gpg"
-      "--decrypt"
-      "${../../../../secrets/media.slskd.env.gpg}"
-    ];
-    destDir = "/etc/keys";
-  };
+  deployment.keys."slskd.env" = mkDeploymentKey ../../../../secrets/media.slskd.env.gpg { };
 }

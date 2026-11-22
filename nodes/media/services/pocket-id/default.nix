@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, mkDeploymentKey, ... }:
 {
   services.pocket-id = {
     enable = true;
@@ -23,13 +23,7 @@
     "/var/lib/pocket-id"
   ];
 
-  deployment.keys."pocket-id.env" = {
-    keyCommand = [
-      "gpg"
-      "--decrypt"
-      "${../../../../secrets/pocket-id.env.gpg}"
-    ];
-    destDir = "/etc/keys";
+  deployment.keys."pocket-id.env" = mkDeploymentKey ../../../../secrets/pocket-id.env.gpg {
     user = "pocket-id";
     group = "pocket-id";
   };
