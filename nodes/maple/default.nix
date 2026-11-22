@@ -13,7 +13,7 @@
     amd = true;
     niri.enable = true;
     games = {
-      sc.enable = false;
+      sc.enable = true;
       mcsr.enable = true;
     };
     apps = {
