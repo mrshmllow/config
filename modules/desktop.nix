@@ -135,6 +135,7 @@ in
         signal-desktop
         mpv
         feishin
+        gelly
         picard
         # citrix_workspace_25_08_10
         azahar
