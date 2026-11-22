@@ -115,6 +115,15 @@ in
               maxMemory = 4096;
               extraArguments = [ ];
             };
+
+            saves = {
+              "practice" = pkgs.fetchzip {
+                url = "https://github.com/Dibedy/The-MCSR-Practice-Map/releases/download/latest/MCSR.Practice.v2.0.0.zip";
+                stripRoot = false;
+                hash = "sha256-zyCmVAypjspbbvaraaYQtckmpACn82TjZakXJf/JOYM=";
+              };
+            };
+
             files = {
               "config/mcsr/standardsettings.json" = {
                 source = ./standardsettings.json;
