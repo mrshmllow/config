@@ -205,6 +205,10 @@ in
             "Mod+W".action = toggle-column-tabbed-display;
             "Mod+Shift+S".action.screenshot = [ ];
             "Mod+Ctrl+Shift+S".action.screenshot-window = [ ];
+
+            "Mod+P".action = set-dynamic-cast-window;
+            "Mod+Shift+P".action = set-dynamic-cast-monitor;
+            "Mod+C".action = clear-dynamic-cast-target;
           }
           // (builtins.listToAttrs (
             lib.flatten (
@@ -239,6 +243,13 @@ in
         };
 
         window-rules = [
+          {
+            matches = [ { is-window-cast-target = true; } ];
+            border = {
+              active.color = "#${config.lib.stylix.colors.base0B}";
+              inactive.color = "#${config.lib.stylix.colors.base0A}";
+            };
+          }
           {
             geometry-corner-radius =
               let
