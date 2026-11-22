@@ -123,12 +123,15 @@ in
             files = {
               "config/mcsr/standardsettings.json" = {
                 source = ./standardsettings.json;
+                method = "copy";
               };
               "config/mcsr/sodium.json" = {
                 source = ./sodium.json;
+                method = "copy";
               };
               "config/mcsr/extra-options.json" = {
                 source = ./sodium.json;
+                method = "copy";
               };
             };
 
