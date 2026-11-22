@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }:
 let
@@ -30,6 +31,112 @@ in
           hide_tab_bar_if_only_one_tab = true;
           automatically_reload_config = true;
           selection_word_boundary = " \t\n{}[]()\"'`«»";
+        };
+      };
+
+      nixcraft = {
+        enable = true;
+
+        client = {
+          shared = {
+            enableExternalAssets = true;
+            account = {
+              uuid = "dd4edde3-f0c7-4e27-82df-9c374548f2b9";
+              username = "tenatq";
+              offline = false;
+            };
+          };
+
+          instances.ranked = {
+            version = "1.16.1";
+            desktopEntry.enable = true;
+            waywall.enable = true;
+            fabricLoader.enable = true;
+            mods =
+              let
+                mkLegalAdv =
+                  {
+                    name,
+                    hash,
+                    version ? "1.16.1",
+                    ppart ? builtins.head (builtins.split "-" name),
+                  }:
+                  pkgs.fetchurl {
+                    inherit hash;
+                    url = "https://github.com/Minecraft-Java-Edition-Speedrunning/legal-mods/raw/2ba63fc475270404e4a1c1f910f22bdc9bc14186/legal-mods/${ppart}/${version}/${name}";
+                  };
+
+                mkLegal = name: hash: mkLegalAdv { inherit name hash; };
+              in
+              [
+                (mkLegal "antigone-1.16.1-2.0.0.jar" "sha256-suUFhZYEhhjoZN2WRfrRJ4m1z31NY19Dfx/8B99YTPY=")
+                (mkLegal "antiresourcereload-5.2.0+1.16.1.jar" "sha256-0UEFlblhZHmcJKCmoa+HHKiHmHmUzJSMxd2rYeGWn8U=")
+                (mkLegalAdv {
+                  name = "krypton-1.16.1-backport-0.1.3-SNAPSHOT+2021-02-20.jar";
+                  hash = "sha256-ZHqIZXc0COUyQq/rr10YuEEmFsHCYPH/XdzxwMv1DIc=";
+                  version = "1.15-1.16.1";
+                })
+                (pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/hvFnDODi/versions/0.1.2/lazydfu-0.1.2.jar";
+                  hash = "sha256-546xSS4gvNjJmNQULdQ3wlFzk8XQL1giBK2KODQedeg=";
+                })
+                (mkLegal "lazystronghold-1.1.4+1.16.1.jar" "sha256-wsSLGXqVBg9T9NCEFAnja3pfAIuR2tA/XjvMQIdHeQs=")
+                (mkLegal "lithium-1.0+backport-0.6.7+1.16.1.jar" "sha256-FwjezXLDKWRrNZ95UiT4iNGKnePJjfQHnDGZxy3p+8M=")
+                (pkgs.fetchurl {
+                  url = "https://cdn.modrinth.com/data/I9W1u5Ac/versions/Uppa2nGO/mcsrranked-6.0.12.jar";
+                  hash = "sha256-6erp0cAHavAXhbhx9kVO6qsUrcsPTsVlLupcx5n6taM=";
+                })
+                (mkLegal "sodium-2.5.1+1.16.1.jar" "sha256-ChV1fDZ07Pdn2FwJ3mPxr69zDe1+ozfvyw+w90dRvAY=")
+                # (mkLegalAdv {
+                #   name = "SpeedRunIGT-16.0+1.16.1.jar";
+                #   ppart = "speedrunigt";
+                #   hash = "sha256-fzCj3c/Hdux3Zz++CjzE7T3xYfOZ5D2TseByZEKSTwE=";
+                # })
+                (mkLegalAdv {
+                  name = "standardsettings-2.3+1.16-1.16.1.jar";
+                  hash = "sha256-KVoWPvh9yLxOWiqz9b1X4snnKYBpiTrb9XW5++Fno8w=";
+                  version = "1.16-1.16.1";
+                })
+                (mkLegalAdv {
+                  name = "starlight-1.3.0+1.16.x-backport-1.1.3.jar";
+                  hash = "sha256-hJI3iu/gKRemWegrJMRHq4BfCMp5zVhLw+iE/wiGRWg=";
+                  version = "1.16-1.16.5";
+                })
+                (mkLegalAdv {
+                  name = "state-output-1.2.3+1.16-1.18.1.jar";
+                  hash = "sha256-Bnfqjx0xEFmOLMQ1AnL7X1Mi10y6KP+JjGeEjs3x8cU=";
+                  ppart = "state-output";
+                  version = "1.16-1.18.1";
+                })
+                (mkLegalAdv {
+                  name = "voyager-1.0.1.jar";
+                  hash = "sha256-n2Si00RSdwoiXyhNGUiuqK8Fhmxbp6T8O4g2mXtN6EQ=";
+                  version = "1.14-1.16.5";
+                })
+              ];
+            java = {
+              package = inputs.mcsr-nixos.packages.${pkgs.stdenv.hostPlatform.system}.graalvm-21;
+              minMemory = 512;
+              maxMemory = 4096;
+              extraArguments = [ ];
+            };
+            files = {
+              "config/mcsr/standardsettings.json" = {
+                source = ./standardsettings.json;
+              };
+              "config/mcsr/sodium.json" = {
+                source = ./sodium.json;
+              };
+              "config/mcsr/extra-options.json" = {
+                source = ./sodium.json;
+              };
+            };
+
+            binEntry = {
+              enable = true;
+              name = "ranked";
+            };
+          };
         };
       };
 

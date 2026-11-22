@@ -4,8 +4,8 @@
     ./shell
     ./hm-modules/desktop.nix
     inputs.noctalia.homeModules.default
-    # inputs.ninb.homeModules.default
     inputs.direnv-instant.homeModules.direnv-instant
+    inputs.nixcraft.homeModules.default
   ];
 
   home.username = "marsh";

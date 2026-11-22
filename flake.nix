@@ -49,10 +49,6 @@
       url = "github:noctalia-dev/noctalia-shell/cachix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ninb = {
-      url = "git+https://tangled.org/althaea.zone/ninjabrain-bot-nix?ref=trunk";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     mcsr-nixos = {
       url = "https://git.uku3lig.net/uku/mcsr-nixos/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -66,9 +62,9 @@
       url = "github:bremor/bureau_of_meteorology";
       flake = false;
     };
-    waywall = {
-      url = "github:tesselslate/waywall";
-      flake = false;
+    nixcraft = {
+      url = "github:loystonpais/nixcraft";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

@@ -106,10 +106,7 @@ in
         pomodoro-gtk
         equibop
         killall
-        (waywall.overrideAttrs {
-          version = "unstable";
-          src = inputs.waywall;
-        })
+        waywall
         (prismlauncher.override {
           additionalLibs = [
             pkgs.libxtst
