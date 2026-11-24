@@ -8,6 +8,7 @@ let
   cfg = config.desktop;
 in
 {
+  # imports = [ ./mcsr ];
   options.desktop = {
     enable = lib.mkEnableOption "desktop computer";
     niri.enable = lib.mkEnableOption "niri wm";
