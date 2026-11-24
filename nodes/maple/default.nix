@@ -22,7 +22,14 @@
     };
   };
 
-  hardware.keyboard.qmk.enable = true;
+  hardware = {
+    openrazer = {
+      enable = true;
+      batteryNotifier.percentage = 10;
+    };
+
+    keyboard.qmk.enable = true;
+  };
 
   services = {
     pcscd.enable = true;
@@ -36,7 +43,11 @@
   environment.systemPackages = with pkgs; [
     yubikey-personalization
     ollama-vulkan
+    openrazer-daemon
+    polychromatic
   ];
+
+  users.users.marsh.extraGroups = [ "openrazer" ];
 
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
