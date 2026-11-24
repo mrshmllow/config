@@ -19,17 +19,19 @@ WIDE_H = 400
 local toggle_eye_measure = helpers.toggle_res(EYE_WIDTH, EYE_HEIGHT, 0.18551335583797476)
 local toggle_thin_bt = helpers.toggle_res(THIN_W, THIN_H)
 local toggle_planar_abuse = helpers.toggle_res(WIDE_W, WIDE_H)
+local default_remaps = {
+	["TAB"] = "F3",
+	["GRAVE"] = "TAB",
+	["mouse5"] = "BACKSPACE",
+}
+local remaps_enabled = true
 
 local config = {
 	input = {
 		layout = "mc",
 		sensitivity = 1.33333,
 		confine_pointer = true,
-		remaps = {
-			["TAB"] = "F3",
-			["GRAVE"] = "TAB",
-			["mouse5"] = "BACKSPACE",
-		},
+		remaps = default_remaps,
 	},
 
 	theme = {
@@ -38,6 +40,16 @@ local config = {
 	},
 
 	actions = {
+		["Ctrl-Shift-0"] = function()
+			if remaps_enabled then
+				waywall.set_remaps({})
+				remaps_enabled = false
+			else
+				waywall.set_remaps(default_remaps)
+				remaps_enabled = true
+			end
+		end,
+
 		["*-9"] = function()
 			waywall.exec(
 				paths.ninb
