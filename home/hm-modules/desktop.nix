@@ -87,7 +87,10 @@ in
           };
         };
 
-        input.mouse.accel-profile = "flat";
+        input.mouse = {
+          accel-profile = "flat";
+          accel-speed = -0.778;
+        };
 
         xwayland-satellite = {
           enable = true;

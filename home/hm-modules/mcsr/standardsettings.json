@@ -48,7 +48,7 @@
     "mouseWheelSensitivity": 1.0,
     "discrete_mouse_scroll": false,
     "touchscreen": false,
-    "rawMouseInput": false,
+    "rawMouseInput": true,
     "autoJump": false,
     "key_key.jump": "key.keyboard.space",
     "key_key.sneak": "key.keyboard.left.shift",
