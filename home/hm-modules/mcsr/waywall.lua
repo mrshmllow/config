@@ -51,12 +51,7 @@ local config = {
 		end,
 
 		["*-9"] = function()
-			waywall.exec(
-				paths.ninb
-				-- paths.java
-				-- 	.. " -Dswing.defaultlaf=javax.swing.plaf.metal.MetalLookAndFeel -Dawt.useSystemAAFontSettings=on -jar "
-				-- 	.. paths.ninb
-			)
+			waywall.exec("ninjabrain-bot")
 		end,
 
 		["Ctrl-Shift-T"] = function()
