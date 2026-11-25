@@ -104,6 +104,10 @@ in
             };
 
             files = {
+              "hotbar.nbt" = {
+                source = ./hotbar.nbt;
+                method = "copy";
+              };
               "config/mcsr/standardsettings.json" = {
                 source = ./standardsettings.json;
                 method = "copy";
