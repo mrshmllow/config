@@ -90,7 +90,7 @@
     "chatLinks": true,
     "chatLinksPrompt": true,
     "chatOpacity": 1.0,
-    "textBackgroundOpacity": 0.5,
+    "textBackgroundOpacity": 0.0,
     "chatScale": 1.0,
     "chatLineSpacing": 0.0,
     "chatWidth": 1.0,
