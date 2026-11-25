@@ -25,6 +25,17 @@ local default_remaps = {
 	["mouse5"] = "BACKSPACE",
 }
 local remaps_enabled = true
+local remaps_enabled_text = nil
+
+local toggle_remap = function(fn)
+	return function()
+		if not remaps_enabled then
+			return false
+		end
+
+		return fn()
+	end
+end
 
 local config = {
 	input = {
@@ -42,33 +53,43 @@ local config = {
 	actions = {
 		["Ctrl-Shift-0"] = function()
 			if remaps_enabled then
+				remaps_enabled_text = waywall.text("remaps, actions disabled", {
+					x = 100,
+					y = 100,
+					size = 2,
+				})
+
 				waywall.set_remaps({})
 				remaps_enabled = false
 			else
+				if remaps_enabled_text ~= nil then
+					remaps_enabled_text:close()
+				end
+
 				waywall.set_remaps(default_remaps)
 				remaps_enabled = true
 			end
 		end,
 
-		["*-9"] = function()
+		["*-Y"] = toggle_remap(function()
 			waywall.exec("ninjabrain-bot")
-		end,
+		end),
 
-		["Ctrl-Shift-T"] = function()
+		["*-T"] = toggle_remap(function()
 			helpers.toggle_floating()
-		end,
+		end),
 
-		["*-6"] = function()
+		["*-R"] = toggle_remap(function()
 			toggle_planar_abuse()
-		end,
+		end),
 
-		["*-7"] = function()
+		["*-F"] = toggle_remap(function()
 			toggle_eye_measure()
-		end,
+		end),
 
-		["*-8"] = function()
+		["*-G"] = toggle_remap(function()
 			toggle_thin_bt()
-		end,
+		end),
 	},
 }
 
