@@ -115,34 +115,11 @@ helpers.res_mirror({
 	dst = eye_dst,
 	depth = 0,
 }, EYE_WIDTH, EYE_HEIGHT)
+
 helpers.res_image(paths.overlay, {
 	dst = eye_dst,
 	depth = 1,
 }, EYE_WIDTH, EYE_HEIGHT)
--- waywall.listen("resolution", function()
---      local width, height = waywall.active_res()
---
---      waywall.set_sensitivity((width == EYE_WIDTH and height == EYE_HEIGHT) and 0.1 or 0)
--- end)
-
-local thin_text = nil
-waywall.listen("resolution", function()
-	local width, height = waywall.active_res()
-
-	if width == THIN_W and height == H then
-		thin_text = waywall.text("pure        ~30%\nchest front 50%\nchest back  64%", {
-			x = W / 20,
-			y = 850,
-			size = 4,
-			color = "#fc0349",
-		})
-	else
-		if thin_text ~= nil then
-			thin_text:close()
-			thin_text = nil
-		end
-	end
-end)
 
 helpers.res_mirror({
 	src = {
