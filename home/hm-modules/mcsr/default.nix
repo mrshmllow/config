@@ -96,11 +96,6 @@ in
             };
 
             saves = {
-              "ow" = pkgs.fetchzip {
-                url = "https://github.com/7rowl/OWPractice/releases/download/v2.0/OW.Practice.v2.0.zip";
-                stripRoot = false;
-                hash = "sha256-oxzaTT8+FY83cXWRhKkphVd5PucM/k1vuMKzZ+S3Gho=";
-              };
               "practice" = pkgs.fetchzip {
                 url = "https://github.com/Dibedy/The-MCSR-Practice-Map/releases/download/latest/MCSR.Practice.v2.0.0.zip";
                 stripRoot = false;
