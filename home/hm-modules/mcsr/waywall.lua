@@ -26,6 +26,7 @@ local default_remaps = {
 }
 local remaps_enabled = true
 local remaps_enabled_text = nil
+local default_sensitivity = 1.33333
 
 local toggle_remap = function(fn)
 	return function()
@@ -40,7 +41,7 @@ end
 local config = {
 	input = {
 		layout = "mc",
-		sensitivity = 1.33333,
+		sensitivity = default_sensitivity,
 		confine_pointer = true,
 		remaps = default_remaps,
 	},
@@ -140,5 +141,11 @@ helpers.res_mirror({
 	},
 	depth = 1,
 }, 0, 0)
+
+waywall.listen("resolution", function()
+	local width, height = waywall.active_res()
+
+	waywall.set_sensitivity((width == EYE_WIDTH and height == EYE_HEIGHT) and 1 or default_sensitivity)
+end)
 
 return config
