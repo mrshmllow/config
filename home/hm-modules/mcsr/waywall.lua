@@ -83,11 +83,11 @@ local config = {
 			toggle_planar_abuse()
 		end),
 
-		["*-B"] = toggle_remap(function()
+		["B"] = toggle_remap(function()
 			toggle_eye_measure()
 		end),
 
-		["*-G"] = toggle_remap(function()
+		["G"] = toggle_remap(function()
 			toggle_thin_bt()
 		end),
 	},
