@@ -72,7 +72,7 @@ local config = {
 		end,
 
 		["*-Y"] = toggle_remap(function()
-			waywall.exec("ninjabrain-bot")
+			waywall.exec(paths.ninb)
 		end),
 
 		["*-T"] = toggle_remap(function()

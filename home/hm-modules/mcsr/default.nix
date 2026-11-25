@@ -183,6 +183,7 @@ in
                   ''
               }",
               java = "${lib.getExe' pkgs.openjdk25 "java"}",
+              ninb = "${lib.getExe pkgs.ninjabrain-bot}",
               overlay = "${./overlay.png}",
           }
 
