@@ -117,7 +117,7 @@ in
                 method = "copy";
               };
               "config/mcsr/extra-options.json" = {
-                source = ./sodium.json;
+                source = ./extra-options.json;
                 method = "copy";
               };
             };

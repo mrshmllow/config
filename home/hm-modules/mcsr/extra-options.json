@@ -1,9 +1,9 @@
 {
-	".apiVersion": "2.2+1.16-1.16.1",
-	".modVersion": "2025.2.1+1.16.1",
-	".dataVersion": 0,
-	"distortionEffectScale": 1.0,
-	"fovEffectScale": 0.15,
-	"controlBowFov": false,
-	"controlSubmergedFov": false
+    ".apiVersion": "2.2+1.16-1.16.1",
+    ".modVersion": "2025.2.1+1.16.1",
+    ".dataVersion": 0,
+    "distortionEffectScale": 1.0,
+    "fovEffectScale": 0.15,
+    "controlBowFov": false,
+    "controlSubmergedFov": false
 }
