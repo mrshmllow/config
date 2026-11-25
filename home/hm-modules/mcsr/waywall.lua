@@ -83,7 +83,7 @@ local config = {
 			toggle_planar_abuse()
 		end),
 
-		["*-F"] = toggle_remap(function()
+		["*-B"] = toggle_remap(function()
 			toggle_eye_measure()
 		end),
 
