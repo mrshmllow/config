@@ -31,7 +31,7 @@ in
         settings = {
           hide_tab_bar_if_only_one_tab = true;
           automatically_reload_config = true;
-          selection_word_boundary = " \t\n{}[]()\"'`«»";
+          selection_word_boundary = " \t\n{}[]()\"'`«»<>";
         };
       };
     })
