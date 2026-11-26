@@ -25,10 +25,6 @@
       url = "github:Slush97/grimoire";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    typst-bot = {
-      url = "github:mattfbacon/typst-bot";
-      flake = false;
-    };
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";

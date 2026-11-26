@@ -5,7 +5,6 @@
     ./arr
     ./autobrr
     ./unifi
-    ./bots.nix
     ./matrix
     ./atproto
     ./pocket-id

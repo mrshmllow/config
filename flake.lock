@@ -1573,7 +1573,6 @@
         "noctalia": "noctalia",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix_5",
-        "typst-bot": "typst-bot",
         "umu": "umu",
         "wire": "wire"
       }
@@ -1928,22 +1927,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "typst-bot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1789750389,
-        "narHash": "sha256-5G1qaxPiNxjRx2V+hyVbaqHT2hfDHeu+8LvOK6xytEs=",
-        "owner": "mattfbacon",
-        "repo": "typst-bot",
-        "rev": "f614708503ff15e5b7d1635aff7c555091bf84cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mattfbacon",
-        "repo": "typst-bot",
         "type": "github"
       }
     },
