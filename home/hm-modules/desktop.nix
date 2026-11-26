@@ -17,9 +17,6 @@ in
 
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
-      # temporary: broken
-      stylix.targets.wayprompt.enable = false;
-
       xdg.configFile."base16-theme.json" = {
         text = builtins.readFile config.stylix.generated.fileTree."stylix/palette.json".source;
       };
